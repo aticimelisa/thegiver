@@ -37,7 +37,7 @@ body::before {
   max-width: 1200px;
   margin: 0 auto;
   border-radius: 10px;
-  padding: 1rem 2rem; /* Eski: 0.5rem 1rem —> yazılarla kenar boşluğu artırıldı */
+  padding: 0rem 2rem; /* Eski: 0.5rem 1rem —> yazılarla kenar boşluğu artırıldı */
   background-color: #b9996b;
   display: flex;
   justify-content: space-between;
@@ -45,9 +45,12 @@ body::before {
   position: relative;
 }
 
+
 .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-family: "Allison", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem; /* Burayı büyüt */
 }
 
 .nav-links {
@@ -82,6 +85,9 @@ body::before {
 }
 
 
+
+
+
 @media (max-width: 768px) {
   .hero {
     justify-content: center;
@@ -112,10 +118,23 @@ button {
 
 .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* max 3 sütun */
   gap: 1rem;
   padding: 2rem;
 }
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr); /* Tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: 1fr; /* Telefon */
+  }
+}
+
 
 .card {
   background-color: rgba(242, 222, 188, 0.15);
@@ -134,4 +153,130 @@ button {
   .menu-toggle {
     display: block;
   }
+}
+
+
+/* toggle */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #222;
+  transition: 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Yeni nav-links görünümü */
+.nav-links {
+  position: absolute;
+  top: 50%;
+  right: 6rem; /* toggle butonunun soluna hizalanır */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-size: 1.2rem;
+  transition: opacity 0.3s ease;
+}
+
+
+
+/*  toggle trans */
+
+.page-wrapper {
+  transition: transform 0.8s ease-in-out;
+  transform-origin: top right;
+  will-change: transform;
+}
+
+.page-wrapper.rotated {
+  transform: rotate(20deg);
+}
+
+/* Menü alt katmanda sabit kalır */
+.menu-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #b9996b;
+  z-index: -1;
+  clip-path: polygon(100% 0, 100% 100%, 60% 0); /* Üçgen efekti */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 2rem;
+  justify-content: flex-start;
+}
+
+.triangle-menu a {
+  margin: 1rem 0;
+  color: #222;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+/* tool tip  */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* üstte gözüksün */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
 }
