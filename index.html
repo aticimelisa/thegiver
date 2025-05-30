@@ -1,41 +1,59 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Candle Theme</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet" />
 </head>
 <body>
+  
   <div class="navbar-wrapper">
     <header class="navbar">
-      <div class="logo">LOGO</div>
+      <div class="logo">biriktirici</div>
+
+      <!-- Hamburger Menü Toggle -->
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      
+
+      <!-- Gizli Menü -->
       <nav class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#">Ten</a>
+        <a href="#">Zetsu</a>
+        <a href="#">Ren</a>
+        <a href="#">Hatsu</a>
       </nav>
-      <div class="menu-toggle">&#9776;</div>
     </header>
   </div>
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Lorem Ipsum</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam usquma is oilus.</p>
-      <button>Get Started</button>
+      <h1>Lux in Tenebris</h1>
+      <p class="tooltip">
+  Et lux in tenebris lucet et tenebrae eam non comprehenderunt. 
+  <span class="tooltip-text">Işık karanlıkta parlar, ama karanlık onu anlayamaz.</span>
+</p>
+      <button id="scrollBtn">Get Started</button>
     </div>
   </section>
 
-  <main class="content">
-    <div class="card"> <h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam usquma is ollus, malis aurae.</p></div>
-    <div class="card"> <h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam usquma is ollus enusac allae.</p></div>
-    <div class="card"> <h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy hii eulsmod tareim.</p></div>
-    <!-- You can duplicate the .card div as many times as needed -->
+  <main class="content" id="content">
+    <div class="card"><h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam usquma is ollus, malis aurae.</p></div>
+    <div class="card"><h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam usquma is ollus enusac allae.</p></div>
+    <div class="card"><h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy hii eulsmod tareim.</p></div>
   </main>
+
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
